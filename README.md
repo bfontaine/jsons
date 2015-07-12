@@ -33,9 +33,10 @@ func read() {
             if err == io.EOF {
                 break
             }
-
-            log.Printf("got %+v", m)
+            log.Fatal(err)
         }
+
+        log.Printf("got %+v", m)
     }
 }
 ```
