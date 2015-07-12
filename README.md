@@ -1,5 +1,8 @@
 # jsons
 
+[![Build Status](https://travis-ci.org/bfontaine/jsons.svg?branch=master)](https://travis-ci.org/bfontaine/jsons)
+[![GoDoc](https://godoc.org/github.com/bfontaine/jsons?status.svg)](https://godoc.org/github.com/bfontaine/jsons)
+
 **jsons** is a Go library to work with JSONS files.
 
 JSONS files contain JSON objects, one per line. This storage format is more
