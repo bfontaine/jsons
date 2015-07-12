@@ -1,40 +1,34 @@
 package jsons
 
-import "os"
+import (
+	"io"
+	"os"
+)
 
 type FileReader struct {
-	Err error
-
 	filename string
+	f        io.WriteCloser
+	r        *Reader
 }
 
 func NewFileReader(filename string) *FileReader {
 	return &FileReader{filename: filename}
 }
 
-func (fr *FileReader) Chan() (chan interface{}, error) {
+func (fr *FileReader) Open() error {
 	f, err := os.Open(fr.filename)
 	if err != nil {
-		return nil, err
+		return err
 	}
+	fr.f = f
+	fr.r = NewReader(f)
+	return nil
+}
 
-	defer f.Close()
+func (fr *FileReader) Close() error {
+	return fr.f.Close()
+}
 
-	reader := NewReader(f)
-
-	c := make(chan interface{})
-
-	go func() {
-		var el interface{}
-
-		if err := reader.Next(&el); err != nil {
-			fr.Err = err
-			close(c)
-			return
-		}
-
-		c <- el
-	}()
-
-	return c, nil
+func (fr *FileReader) Next(v interface{}) error {
+	return fr.r.Next(v)
 }
