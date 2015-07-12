@@ -17,7 +17,7 @@ func NewFileWriter(filename string) *FileWriter {
 }
 
 func (fw *FileWriter) Open() error {
-	f, err := os.Open(fw.filename)
+	f, err := os.Create(fw.filename)
 	if err != nil {
 		return err
 	}
