@@ -14,13 +14,13 @@ func TestWriterAdd(t *testing.T) {
 	r := jsons.NewWriter(&b)
 	assert.NotNil(t, r)
 
-	r.Add(map[string]int{
+	assert.Nil(t, r.Add(map[string]int{
 		"foo": 42,
-	})
+	}))
 
-	r.Add(struct {
+	assert.Nil(t, r.Add(struct {
 		X int `json:"xyz"`
-	}{X: 42})
+	}{X: 42}))
 
 	s := b.String()
 

@@ -14,7 +14,7 @@ type FileWriter struct {
 }
 
 // NewFileWriter returns a pointer on a new FileWriter which will write in the
-// given filename. The file is truncated if it already exist.
+// given filename. The file is truncated if it already exists.
 func NewFileWriter(filename string) *FileWriter {
 	// TODO support append?
 

@@ -1,7 +1,6 @@
 package jsons_test
 
 import (
-	"io/ioutil"
 	"os"
 	"testing"
 
@@ -37,7 +36,7 @@ func TestFileWriterAdd(t *testing.T) {
 
 		assert.Nil(t, fw.Close())
 
-		content, err := ioutil.ReadFile(name)
+		content, err := os.ReadFile(name)
 		assert.Nil(t, err)
 
 		assert.Equal(t, "{\"foo\":\"bar\"}\n{\"A\":42.3}\n", string(content))

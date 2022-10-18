@@ -2,7 +2,6 @@ package jsons_test
 
 import (
 	"io"
-	"io/ioutil"
 	"os"
 	"testing"
 
@@ -37,7 +36,7 @@ func TestFileReaderEmptyFile(t *testing.T) {
 func TestFileReaderNext(t *testing.T) {
 	vanish.File(func(name string) {
 
-		ioutil.WriteFile(name, []byte("{\"foo\": 17}\n"), 0644)
+		assert.Nil(t, os.WriteFile(name, []byte("{\"foo\": 17}\n"), 0644))
 
 		fr := jsons.NewFileReader(name)
 
