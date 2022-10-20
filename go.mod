@@ -3,7 +3,7 @@ module github.com/bfontaine/jsons
 go 1.19
 
 require (
-	github.com/bfontaine/vanish v1.0.0
+	github.com/bfontaine/vanish/v2 v2.0.0
 	github.com/stretchr/testify v1.8.0
 )
 

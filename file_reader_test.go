@@ -1,12 +1,12 @@
 package jsons_test
 
 import (
+	"github.com/bfontaine/vanish/v2"
 	"io"
 	"os"
 	"testing"
 
 	"github.com/bfontaine/jsons"
-	"github.com/bfontaine/vanish/vanish"
 	"github.com/stretchr/testify/assert"
 )
 
