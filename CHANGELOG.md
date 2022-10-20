@@ -4,6 +4,7 @@
 
 * Add `Writer.AddAll`
 * `NewWriter` now return a `Writer` instead of a `*Writer`. Methods are updated to take a `Writer` as well.
+* `FileWriter` and `FileReader` no longer reference the underlying file after `Close()`
 
 ## 1.0.1 (2022/10/18)
 
