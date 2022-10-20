@@ -43,3 +43,8 @@ func (fw *FileWriter) Close() error {
 func (fw *FileWriter) Add(v interface{}) error {
 	return fw.w.Add(v)
 }
+
+// AddAll is equivalent to calling Add on each of its arguments
+func (fw *FileWriter) AddAll(args ...interface{}) error {
+	return fw.w.AddAll(args)
+}
