@@ -10,14 +10,13 @@ type FileWriter struct {
 	filename string
 
 	f io.WriteCloser
-	w *Writer
+	w Writer
 }
 
 // NewFileWriter returns a pointer on a new FileWriter which will write in the
 // given filename. The file is truncated if it already exists.
 func NewFileWriter(filename string) *FileWriter {
 	// TODO support append?
-
 	return &FileWriter{filename: filename}
 }
 
