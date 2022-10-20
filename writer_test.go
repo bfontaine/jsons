@@ -15,8 +15,12 @@ func TestWriterAdd(t *testing.T) {
 	assert.NotNil(t, r)
 
 	assert.Nil(t, r.Add(map[string]int{
-		"foo": 42,
+		"foo": 1,
 	}))
+
+	assert.Nil(t, r.AddAll(
+		map[string]int{"foo": 2},
+		map[string]bool{"foo": false}))
 
 	assert.Nil(t, r.Add(struct {
 		X int `json:"xyz"`
@@ -24,5 +28,5 @@ func TestWriterAdd(t *testing.T) {
 
 	s := b.String()
 
-	assert.Equal(t, "{\"foo\":42}\n{\"xyz\":42}\n", s)
+	assert.Equal(t, "{\"foo\":1}\n{\"foo\":2}\n{\"foo\":false}\n{\"xyz\":42}\n", s)
 }

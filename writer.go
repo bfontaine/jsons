@@ -20,3 +20,13 @@ func NewWriter(w io.Writer) *Writer {
 func (jw *Writer) Add(v interface{}) error {
 	return jw.enc.Encode(v)
 }
+
+// AddAll is equivalent to calling Add on each of its arguments
+func (jw *Writer) AddAll(args ...interface{}) (err error) {
+	for _, v := range args {
+		if err = jw.Add(v); err != nil {
+			return
+		}
+	}
+	return
+}
