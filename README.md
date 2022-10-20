@@ -3,11 +3,13 @@
 [![Build Status](https://travis-ci.org/bfontaine/jsons.svg?branch=master)](https://travis-ci.org/bfontaine/jsons)
 [![GoDoc](https://godoc.org/github.com/bfontaine/jsons?status.svg)](https://godoc.org/github.com/bfontaine/jsons)
 
-**jsons** is a Go library to work with JSONS files.
+**jsons** is a Go library to work with JSONS/[NDJSON][] files.
 
 JSONS files contain JSON objects, one per line. This storage format is more
 efficient than storing an array of objects since it doesn’t need to be loaded
 in memory when reading/writing it.
+
+[NDJSON]: http://ndjson.org/
 
 ## Install
 
