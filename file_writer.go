@@ -35,7 +35,10 @@ func (fw *FileWriter) Open() error {
 // Close closes the underlying file. You must call this when you're done adding
 // values.
 func (fw *FileWriter) Close() error {
-	return fw.f.Close()
+	fw.w = Writer{}
+	err := fw.f.Close()
+	fw.f = nil
+	return err
 }
 
 // Add encodes the given value as a JSON object and write it in the underlying

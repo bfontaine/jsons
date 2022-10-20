@@ -32,7 +32,10 @@ func (fr *FileReader) Open() error {
 
 // Close closes the underlying file.
 func (fr *FileReader) Close() error {
-	return fr.f.Close()
+	fr.r = nil
+	err := fr.f.Close()
+	fr.f = nil
+	return err
 }
 
 // Next unmarshals the next JSON object in the given value, which must be a
